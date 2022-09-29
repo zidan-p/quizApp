@@ -35,6 +35,8 @@ fetch('https://raw.githubusercontent.com/Zwarzen/questions/main/questions.json')
 //     startGame();
 
 //     //cek
+
+
 //     console.log(questions)
 //     console.log(availableQuesions)
 // },10)
@@ -60,7 +62,7 @@ getNewQuestion = () => {
         return window.location.assign('./end.html');
     }
     questionCounter++;
-    progressText.innerText = `Pertanyaan ${questionCounter}/${MAX_QUESTIONS}`;
+    progressText.innerText = `Question ${questionCounter}/${MAX_QUESTIONS}`;
     //Update the progress bar
     progressBarFull.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
 
@@ -126,5 +128,13 @@ incrementScore = (num) => {
     score += num;
     scoreText.innerText = score;
 };
+
+function timerGame(){
+    
+}
+
+// setTimeout(function(){
+//    window.location.href = 'game.html';
+// }, 5000);
 
 
