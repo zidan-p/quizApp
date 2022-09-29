@@ -13,6 +13,7 @@ let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
 let availableQuesions = [];
+let timeInterval; //untuk menyimpan interval timer
 
 let questions = [];
 
@@ -88,7 +89,8 @@ startGame = () => {
 
 //Progress Bar dan Question Index
 getNewQuestion = () => {
-    //timer question
+    //hapus interval dan buat timer baru
+    clearInterval(timeInterval);
     timerGame();
 
 
@@ -172,7 +174,11 @@ incrementScore = (num) => {
 function timerGame(){
     let interval = 10; //10 detik
 
-    var countDown = setInterval (() => {
+    //buat bar 100% dan waktu 10s
+    progressBar.style.width = "100%";
+    timeSpan.innerHTML = "10s"
+
+    timeInterval = setInterval (() => {
         interval--;
 
         let progressWidth = interval / 10 * 100
@@ -182,7 +188,7 @@ function timerGame(){
             timeSpan.innerHTML = interval + "s"
             checkColors(progressWidth)
         }else{
-        clearInterval(countDown)
+        clearInterval(timeInterval)
         progressBar.style.width = "0%";
         timeSpan.innerHTML = "Game Over";
         
